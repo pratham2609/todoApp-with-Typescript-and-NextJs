@@ -1,7 +1,10 @@
+import { TodoProvider } from '@/context/TodoContext'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['devanagari'], weight: ['300', '400', '500', '600', '700']
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <html lang="en" >
+      <body className={poppins.className}>
+        <TodoProvider>{children}</TodoProvider>
+      </body>
+    </html >
   )
 }
